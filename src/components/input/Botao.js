@@ -6,9 +6,8 @@ function Botao(props) {
   return (
     <div>
       <label>{props.label}</label>
+      <input onChange={props.onChange} type='text' style={{ color: `${props.color}`, width: `${props.width}` }}
 
-      <input className='botaoTeste' style={{color: `${props.color}`, width:`${props.width}`, width:`${props.width}`}}
-      
       />
     </div>
   )
