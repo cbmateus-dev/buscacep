@@ -10,8 +10,12 @@ O projeto consiste na criação de uma busca de endereço através do CEP, usand
 - Hooks
 - HTML
 - CSS
+- Material UI
 
 #
+<h1 align="center">
+	<img alt="cep" src="./public/buscacep.png" width="300px"/>
+	</h1>
 
 
 
@@ -29,7 +33,7 @@ git clone https://github.com/cbmateus-dev/buscacep.git
 &&
 ```
 bash
-cd telalogin
+cd buscacep
 ```
 
 
