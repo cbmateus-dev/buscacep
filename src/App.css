@@ -1,0 +1,19 @@
+
+
+.btn {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 30px;
+    justify-content: center;
+
+
+}
+
+.Input {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+      
+
+}

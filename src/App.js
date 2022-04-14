@@ -2,14 +2,14 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import './App.css';
-
+import TextField from '@mui/material/TextField';
 
 function App() {
   const [cep, setCep] = useState('');
   const [endereco, setEndereco] = useState('');
 
   useEffect(() => {
-    alert('Quer Acessar a API?')
+    //alert('Quer Acessar a API?')
   }, [])
 
 
@@ -17,12 +17,14 @@ function App() {
 
     axios.get(`https://viacep.com.br/ws/${cep}/json/`)
       .then((Response) => {
+        console.log(Response)
         setEndereco(
           {
             Logradouro: Response.data.logradouro,
             Bairro: Response.data.bairro,
             Localidade: Response.data.localidade,
-            Estado: Response.data.uf
+            Estado: Response.data.uf,
+            Ddd: Response.data.ddd
           }
         )
       })
@@ -32,29 +34,60 @@ function App() {
   return (
     <div className="App">
 
-      <input
-        onBlur={(e) => {
-          setCep(e.target.value)
-        }}
-      />
+      <div className='btn'>
+        <h1>Buscar Cep</h1>
+        <div className='Input'>
+          <TextField
+            id='CEP'
+            label="Cep"
+            onBlur={(e) => {
+              setCep(e.target.value)
+            }}
+          />
+        </div>
+        <div className='Input'>
 
-      <input
-        label={'Logradouro'}
-        value={endereco.Logradouro}
-      />
-      <input
-        label={'Bairro'}
-        value={endereco.Bairro}
-      />
-      <input
-        label={'Localidade'}
-        value={endereco.Localidade}
-      />
-      <input
-        label={'Estado'}
-        value={endereco.Estado}
-      />
+          <TextField
+            id="Logradouro"
+            placeholder='Logradouro'
+            value={endereco.Logradouro}
+          />
+        </div>
 
+        <div className='Input'>
+
+          <TextField id="Bairro"
+            placeholder={'Bairro'}
+
+            value={endereco.Bairro}
+          />
+        </div>
+
+        <div className='Input'>
+          <TextField
+            id="Localidade"
+            placeholder={'Localidade'}
+            value={endereco.Localidade}
+          />
+        </div>
+
+        <div className='Input'>
+          <TextField
+            id="Estado"
+            placeholder={'Estado'}
+            value={endereco.Estado}
+          />
+        </div>
+
+        <div className='Input'>
+          <TextField
+            id="DDD"
+            placeholder={'DDD'}
+            value={endereco.Ddd}
+          />
+        </div>
+
+      </div>
     </div>
   );
 }
